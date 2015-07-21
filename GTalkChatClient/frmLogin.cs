@@ -18,6 +18,8 @@ namespace GTalkChatClient
             xmppCon.OnLogin += xmppCon_OnLogin;
             xmppCon.OnAuthError += xmppCon_OnAuthError;
             xmppCon.OnError += xmppCon_OnError;
+
+            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void xmppCon_OnError( object sender, Exception ex )
@@ -27,6 +29,7 @@ namespace GTalkChatClient
                 BeginInvoke( new ErrorHandler( xmppCon_OnError ), sender, ex );
                 return;
             }
+            picLoader.Visible = false;
             MessageBox.Show( "Error occured.", "GTalkCC" );
         }
 
@@ -37,6 +40,7 @@ namespace GTalkChatClient
                 BeginInvoke( new XmppElementHandler( xmppCon_OnAuthError ), sender, e );
                 return;
             }
+            picLoader.Visible = false;
             MessageBox.Show("Username and/or password is invalid.", "GTalkCC");
         }
 
@@ -49,7 +53,7 @@ namespace GTalkChatClient
             }
             FrmChatApp app = new FrmChatApp( xmppCon );
             app.Show();
-
+            picLoader.Visible = false;
             Hide();
         }
 
@@ -66,6 +70,9 @@ namespace GTalkChatClient
             xmppCon.Server = jidUser.Server;
             xmppCon.Password = txtPassword.Text;
             xmppCon.AutoResolveConnectServer = true;
+
+            picLoader.Visible = true;
+
             xmppCon.Open();
         }
 

@@ -34,6 +34,8 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.picLoader = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picLoader)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -88,20 +90,32 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // frmLogin
+            // picLoader
+            // 
+            this.picLoader.Image = global::GTalkChatClient.Properties.Resources.ajax_loader;
+            this.picLoader.Location = new System.Drawing.Point(128, 66);
+            this.picLoader.Name = "picLoader";
+            this.picLoader.Size = new System.Drawing.Size(35, 37);
+            this.picLoader.TabIndex = 6;
+            this.picLoader.TabStop = false;
+            this.picLoader.Visible = false;
+            // 
+            // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 108);
+            this.Controls.Add(this.picLoader);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblUsername);
-            this.Name = "frmLogin";
+            this.Name = "FrmLogin";
             this.Text = "GTalkCC  |  Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picLoader)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,6 +129,7 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.PictureBox picLoader;
     }
 }
 
